@@ -1,0 +1,15 @@
+<nav class="navbar navbar-dark bg-light">
+    <div class="container">
+        <span class='text'>FriedMania</span>
+        <a href='/cart/'><i class="fas fa-shopping-cart"> 
+            <span class='badge badge-warning' id='lblCartCount'> {{request.session.cart|length}} </span>
+        </i></a>
+        {% if user.is_authenticated %}
+            <p class="text">logout</p>
+        {% else %}
+            <p class="text"> login</p>
+        {% endif %}
+
+    </div>
+    
+</nav>

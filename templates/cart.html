@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block main  %}
+<table style="border: 1rem;">
+    <tr><th>Id</th><th>Quantity</th></tr>
+    {% for ele, value in request.session.cart.items%}
+    <tr><td>{{ele}}</td><td>{{value}}</td></tr>
+    {% endfor%}
+    
+</table>
+{% endblock main%}
