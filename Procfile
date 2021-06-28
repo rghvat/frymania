@@ -1,1 +1,1 @@
-web: gunicorn fman.wsgi
+web: gunicorn fman.wsgi --log-file -
