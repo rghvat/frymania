@@ -27,9 +27,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '10s+5r_ad8qu2s2!-%&_yl**dh9i9zydox@@q$_ipy2w3p)lij'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*', 'frymania.herokuapp.com']
 
 
 # Application definition
