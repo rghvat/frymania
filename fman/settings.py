@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+# import django_heroku
+
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +29,7 @@ SECRET_KEY = '10s+5r_ad8qu2s2!-%&_yl**dh9i9zydox@@q$_ipy2w3p)lij'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*', 'frymania.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -119,11 +123,11 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
+# STATICFILES_DIRS = [
+#     BASE_DIR / "static",
+# ]
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'STATIC'
+STATIC_ROOT = BASE_DIR / 'static'
 
 # Session
 
@@ -138,3 +142,5 @@ MEDIA_URL  = '/media/'
 
 
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# django_heroku.settings(locals())

@@ -1,9 +1,13 @@
 {% extends 'base.html' %}
 
 {% block main%}
-<form method="POST">
-    {{form.as_p}}
-    {% csrf_token %}
+<div class="container-fluid" >
+    <form method="POST" class="text-center" style="margin-left: auto; margin-right: auto;">
+        <table>
+        {{form.as_table}}
+        {% csrf_token %}
+    </table>
     <input type="submit">
-</form>
+    </form>
+</div>
 {% endblock main%}
