@@ -27,15 +27,13 @@ def delete_product_view(request):
 
 def home_view(request):
     objs = Product.objects.all()
-    request.session['cart'] = request.session['cart'] or {}
+    request.session['cart'] = request.session.get('cart', {})
     return render(request, 'base.html', {'objs':objs})
 
 def cart_show(request):
     '''
     '''
-    product = Product.objects.all()
-    
-    return render(request, 'cart.html', )
+    return render(request, 'cart.html' )
 
 def checkout(request):
     '''
