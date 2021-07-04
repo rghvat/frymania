@@ -2,12 +2,19 @@
 
 {% block main%}
 <div class="container-fluid" >
-    <form method="POST" class="text-center" style="margin-left: auto; margin-right: auto;">
-        <table>
-        {{form.as_table}}
+    <form method="POST" class="text-center" style="margin-top: 3rem;">
+       
+        {{form.as_p}}
         {% csrf_token %}
-    </table>
+    
     <input type="submit">
+    
     </form>
+    <div class="row text-center">
+        {% for ele, value in request.session.cart.items%}
+            {{ele}} {{value}} 
+        {% endfor %}
+    </div>
+    
 </div>
 {% endblock main%}

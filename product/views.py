@@ -11,9 +11,8 @@ def add_product_view(request):
     print('add view called', request.POST.get('id'))
     id = request.POST.get('id')
     cart = request.session.get('cart', {})
-    cart[id] = cart.get(id, 0) + 1
+    cart[id] = cart.get(id, 0)+ 1
     request.session['cart'] =  cart
-    print(request.session['cart'])
     return HttpResponse('Hi ')
 
 
@@ -24,17 +23,19 @@ def delete_product_view(request):
     cart = request.session['cart'] or {}
     cart[id] = cart.get(id, 1) - 1
     request.session['cart'] =  cart
-    print(request.session['cart'])
     return HttpResponse('hi ')
 
 def home_view(request):
     objs = Product.objects.all()
+    request.session['cart'] = request.session['cart'] or {}
     return render(request, 'base.html', {'objs':objs})
 
 def cart_show(request):
     '''
     '''
-    return render(request, 'cart.html')
+    product = Product.objects.all()
+    
+    return render(request, 'cart.html', )
 
 def checkout(request):
     '''

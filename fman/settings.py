@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+	'django.contrib.admindocs',
 ]
 
 MIDDLEWARE = [
@@ -68,8 +69,13 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'product.custom_context_processor.product_renderer',
             ],
         },
+        # 'libraries':{
+        #     'custom_templatetag': 'actualites.templatetags.mes_tags',
+
+        #     }
     },
 ]
 
@@ -144,3 +150,11 @@ MEDIA_URL  = '/media/'
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # django_heroku.settings(locals())
+
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.PyMemcacheCache',
+        'LOCATION': '127.0.0.1:11211',
+    }
+}

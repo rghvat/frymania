@@ -2,7 +2,8 @@
 <html lang="en">
   <head>
     {% load static %}
-
+    {% load dict_lookup %}
+    
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -40,7 +41,7 @@
     </style>
   
   </head>
-  <body>
+  <body style="background-color: #FFF5DA;">
 
     {% include 'navbar.html' %}
     {% block main%}
@@ -48,15 +49,16 @@
 
 
     {% for obj in objs %}
-        <div class="card" style="width: 18rem; padding: 2rem; margin: 2rem;">
+        <div class="card" style="width: 18rem; padding: 2rem; margin: 2rem; background-color: #F7DAD9; height: 100%;">
           <img src="{{obj.image.url }}" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{obj.name}}</h5>
               <p class="card-text">{{obj.description}}</p>
+              <p class="card-text">{{obj.price}}</p>
               <div class="row">
-              <button type="button" class="btn btn-secondary" onclick="Increment('{{obj.id}}')"><i class="bi bi-cart-plus-fill"></i> Add</button>
-              <p id='{{obj.id}}' style="text-align: center;">0</p>
-              <button type="button" class="btn btn-secondary" onclick="Decrement('{{obj.id}}')"> <i class="bi bi-cart-dash-fill"></i>Remove</button>
+              <button type="button" class="btn btn-secondary" onclick="Increment({{obj.id}})"><i class="bi bi-cart-plus-fill"></i> Add</button>
+              <p id='{{obj.id}}' style="text-align: center;"> {% mydict obj.id %}</p>
+              <button type="button" class="btn btn-secondary" onclick="Decrement({{obj.id}})"> <i class="bi bi-cart-dash-fill"></i>Remove</button>
           </div>
       </div>
     </div>
