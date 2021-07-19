@@ -42,7 +42,7 @@ def checkout(request):
     if form.is_valid():
         obj = form.save()
         
-        for ele in request.session['cart']:
+        for ele in request.session.get('cart', {}):
             print(ele, request.session['cart'][ele])
             cart = Cart.objects.create(cart=Product.objects.get(id=ele), 
                                         unit = request.session['cart'][ele],
@@ -50,7 +50,7 @@ def checkout(request):
             )
             cart.save()
         
-        del request.session['cart']
+        request.session['cart'] = {}
         return render(request, 'success.html')
 
     return render(request, 'checkout.html',{'form':form})
